@@ -1,0 +1,140 @@
+require:
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: enable
+  DisplayCopNames: true
+  SuggestExtensions: false
+
+# METRICS RULES
+Metrics/ModuleLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Max: 200
+
+Metrics/BlockLength:
+  IgnoredMethods:
+    - included
+  Exclude:
+    - '**/*.gemspec'
+    - 'spec/**/*'
+    - 'Guardfile'
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Max: 200
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Max: 40
+
+# BUNDLER RULES
+Bundler/OrderedGems:
+  Enabled: false
+
+# STYLE RULES
+Style/WordArray:
+  MinSize: 5
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/Documentation:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/BlockComments:
+  Enabled: false
+
+# Forces Ruby 2.6 style of endless ranges: [0..] instead of [0..-1]
+Style/SlicingWithRange:
+  Enabled: false
+
+# Forces to remove backslash escapes that are automatically identified by ruby
+# Example match(/[\,\.]/) => match(/[,.]/)
+# It's more readable, but harder to test with regex validators that can't do this magic.
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/HashAsLastArrayItem:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+# LAYOUT RULES
+Layout/LineLength:
+  Max: 120
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/HashAlignment:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+# NAMING RULES
+Naming/MethodParameterName:
+  AllowedNames: [io, id, to, by, on, in, at, ip, db, os, pp, q]
+
+# PERFORMANCE RULES
+Performance/Casecmp:
+  Enabled: false
+
+# Linters
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: false # it gets pretty complicated with metaprogramming
+
+Lint/EmptyClass:
+  Enabled: false # we want to have empty classes, for instance for stubbed base classes like base_service.rb
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+  AllowedIdentifiers: s3
+  CheckSymbols: false # we have a lot of keys where we need an arbitrary names for keys
