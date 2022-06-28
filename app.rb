@@ -15,9 +15,6 @@ after { log_response }
     [api_response.status, api_response.body]
   end
 end
-# post "/v1/users", "/v1/users/*" do
-  # UserService.new(request: request).call
-# end
 
 get "/", "/health_check" do
   json status: "ok"
