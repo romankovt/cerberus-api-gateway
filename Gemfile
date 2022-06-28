@@ -14,6 +14,11 @@ gem "memoist", "~> 0.16.2"
 gem "faraday", "~> 2.3.0"
 gem "pp", "~> 0.3.0"
 gem "zeitwerk", "~> 2.5.4"
+gem "jwt", "~> 2.4.1"
+gem "request_store", "~> 1.5.1"
+gem "activesupport", "~> 7.0.3"
+gem "hanami-router", "~> 2.0.0.alpha6"
+gem "elastic-apm", "~> 4.5.1"
 
 group :development do
   gem "rubocop", "~> 1.30.0", require: false

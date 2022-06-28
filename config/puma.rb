@@ -29,10 +29,10 @@ lowlevel_error_handler do |_e|
     500,
     {},
     [
-      <<-ERROR_MESSAGE.squish << "\n",
+      <<-ERROR_MESSAGE.squish << "\n"
         An error has occurred, and engineers have been informed. Please reload the page. If you continue to have
         problems, please contact support.
       ERROR_MESSAGE
-    ],
+    ]
   ]
 end

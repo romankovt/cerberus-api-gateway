@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RequestDispatcher
   attr_reader :url, :verb, :params, :response
 

@@ -41,24 +41,18 @@ ENV LANG=C.UTF-8 \
 # ENV BUNDLE_APP_CONFIG=.bundle
 
 # Uncomment this line if you want to run binstubs without prefixing with `bin/` or `bundle exec`
-ENV PATH /app/bin:$PATH
+# ENV PATH /app/bin:$PATH
 
 # Upgrade RubyGems and install the latest Bundler version
 RUN gem update --system && \
     gem install bundler
 
-# copy code base
-COPY . .
-
 # Create a directory for the app code
-# RUN mkdir -p /app
-# WORKDIR /app
-
-RUN bundle install
+RUN mkdir -p /app
+WORKDIR /app
 
 # Document that we're going to expose port 4567
 EXPOSE 4567
-# Use Bash as the default command
-# CMD ["/usr/bin/bash"]
 
-CMD ["sh", "-c", "bundle exec puma"]
+# Use Bash as the default command
+CMD ["/usr/bin/bash"]
