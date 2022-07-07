@@ -24,10 +24,6 @@ class Cerberus < Sinatra::Base
       [api_response.status, api_response.body]
     end
   end
-<<<<<<< Updated upstream
-end
-=======
->>>>>>> Stashed changes
 
   post "/v1/auth/otp/code" do
     otp_service = Auth::OTPService.new(client_request: @client_request)
