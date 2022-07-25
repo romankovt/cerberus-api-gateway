@@ -27,7 +27,6 @@ class Cerberus < Sinatra::Base
 
   post "/v1/auth/otp/code" do
     otp_service = Auth::OTPService.new(client_request: @client_request)
-    ElasticAPM.report_message('This should probably never happen?!')
     if otp_service.call
       status otp_service.status
       json otp_service.payload

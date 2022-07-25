@@ -41,10 +41,10 @@ class Cerberus
   register Sinatra::MultiRoute
 
   # add elastic APM
-  use ElasticAPM::Middleware
-  ElasticAPM::Sinatra.start(Cerberus)
+  # use ElasticAPM::Middleware
+  # ElasticAPM::Sinatra.start(Cerberus)
 
-  at_exit { ElasticAPM.stop }
+  # at_exit { ElasticAPM.stop }
 
   # raise error if no jwt token
   raise StandardError, "no jwt token" if ENV.fetch("AUTH_HMAC_SECRET").blank?
